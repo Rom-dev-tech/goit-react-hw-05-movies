@@ -24,10 +24,12 @@ const MoviesView = () => {
     setQuery(query);
     setMovies([]);
 
-    history.push({
-      ...location,
-      search: `query=${query}`,
-    });
+    if (query !== '') {
+      history.push({
+        ...location,
+        search: `query=${query}`,
+      });
+    }
   };
 
   useEffect(() => {
