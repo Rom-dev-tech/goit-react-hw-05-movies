@@ -12,7 +12,7 @@ export const SearchBar = ({ onSubmit }) => {
     event.preventDefault();
 
     if (query.trim() === '') {
-      alert('EMPTY');
+      alert('Make your choice :)');
     }
 
     onSubmit(query);
@@ -33,7 +33,7 @@ export const SearchBar = ({ onSubmit }) => {
         onChange={handleSearchChange}
         autoComplete="off"
         autoFocus
-        placeholder="Search movie"
+        placeholder="Enter the query of the movie or cartoon"
       />
     </form>
   );

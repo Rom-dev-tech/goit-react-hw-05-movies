@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-// import { Link } from 'react-router-dom';
 import { SearchBar } from './SearchBar';
 import { MoviesGalerry } from '../../MoviesGalerry/MoviesGalerry';
+import { Title } from '../../Title/Title';
 import * as moviesShelfAPI from '../../../service/moviesshelf-appi';
 import '../MoviesView/MoviesView.scss';
 
@@ -27,7 +27,8 @@ export const MoviesView = () => {
     <>
       <SearchBar onSubmit={onChangeSubmit} />
 
-      <h1>Found on request: {query}</h1>
+      {query !== '' && <Title title="Found on request:" query={query} />}
+
       <MoviesGalerry movies={movies} />
     </>
   );
