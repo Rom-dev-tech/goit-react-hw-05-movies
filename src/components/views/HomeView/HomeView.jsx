@@ -4,7 +4,7 @@ import { MoviesGalerry } from '../../MoviesGalerry/MoviesGalerry';
 import { Title } from '../../Title/Title';
 import '../HomeView/HomeView.scss';
 
-export const HomeView = () => {
+const HomeView = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
@@ -21,3 +21,5 @@ export const HomeView = () => {
     </>
   );
 };
+
+export default HomeView;

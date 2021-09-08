@@ -6,7 +6,7 @@ import { Title } from '../../Title/Title';
 import * as moviesShelfAPI from '../../../service/moviesshelf-appi';
 import '../MoviesView/MoviesView.scss';
 
-export const MoviesView = () => {
+const MoviesView = () => {
   const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([]);
   const history = useHistory();
@@ -55,3 +55,5 @@ export const MoviesView = () => {
     </>
   );
 };
+
+export default MoviesView;

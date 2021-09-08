@@ -1,13 +1,18 @@
-import { useEffect, useState } from 'react';
+import { memo, useEffect, useState, lazy, Suspense } from 'react';
 import { Route, useParams, useRouteMatch } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import * as moviesShelfAPI from '../../../service/moviesshelf-appi';
-import { Cast } from '../../Cast/Cast';
-import { Reviews } from '../../Reviews/Reviews';
 import defaultImage from '../../../images/default.jpg';
 import '../MovieDetailsView/MovieDetailsView.scss';
 
-export const MovieDetailsView = () => {
+const Cast = lazy(() =>
+  import('../../Cast/Cast' /* webpackChunkName: "cast" */)
+);
+const Reviews = lazy(() =>
+  import('../../Reviews/Reviews' /* webpackChunkName: "reviews" */)
+);
+
+const MovieDetailsView = () => {
   const { moviesId } = useParams();
   const { url, path } = useRouteMatch();
   const [movie, setMovie] = useState(null);
@@ -75,15 +80,19 @@ export const MovieDetailsView = () => {
             </li>
           </ul>
 
-          <Route path={`${path}/cast`}>
-            <Cast moviesId={moviesId} />
-          </Route>
+          <Suspense fallback={<h1>Loading... Additional information</h1>}>
+            <Route path={`${path}/cast`}>
+              <Cast moviesId={moviesId} />
+            </Route>
 
-          <Route path={`${path}/reviews`}>
-            <Reviews moviesId={moviesId} />
-          </Route>
+            <Route path={`${path}/reviews`}>
+              <Reviews moviesId={moviesId} />
+            </Route>
+          </Suspense>
         </>
       )}
     </>
   );
 };
+
+export default memo(MovieDetailsView);

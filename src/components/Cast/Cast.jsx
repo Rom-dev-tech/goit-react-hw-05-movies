@@ -4,7 +4,7 @@ import * as moviesShelfAPI from '../../service/moviesshelf-appi';
 import defaultImage from '../../images/default.jpg';
 import '../Cast/Cast.scss';
 
-export const Cast = ({ moviesId }) => {
+const Cast = ({ moviesId }) => {
   const [cast, setCast] = useState([]);
 
   useEffect(() => {
@@ -37,3 +37,5 @@ export const Cast = ({ moviesId }) => {
 Cast.propTypes = {
   moviesId: PropTypes.string.isRequired,
 };
+
+export default Cast;

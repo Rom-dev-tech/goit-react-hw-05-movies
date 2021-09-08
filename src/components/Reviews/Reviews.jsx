@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import * as moviesShelfAPI from '../../service/moviesshelf-appi';
 
-export const Reviews = ({ moviesId }) => {
+const Reviews = ({ moviesId }) => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
@@ -32,3 +32,5 @@ export const Reviews = ({ moviesId }) => {
 Reviews.propTypes = {
   moviesId: PropTypes.string.isRequired,
 };
+
+export default Reviews;
