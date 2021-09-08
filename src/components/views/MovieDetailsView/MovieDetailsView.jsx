@@ -7,6 +7,7 @@ import {
   useRouteMatch,
 } from 'react-router';
 import { NavLink } from 'react-router-dom';
+import { Title } from '../../Title/Title';
 import * as moviesShelfAPI from '../../../service/moviesshelf-appi';
 import defaultImage from '../../../images/default.jpg';
 import '../MovieDetailsView/MovieDetailsView.scss';
@@ -27,6 +28,8 @@ const MovieDetailsView = () => {
   const location = useLocation();
   const history = useHistory();
 
+  const titleOnMovie = location?.state?.label;
+
   useEffect(() => {
     moviesShelfAPI.fatchMovieById(movieId).then(setMovie);
   }, [movieId]);
@@ -37,7 +40,7 @@ const MovieDetailsView = () => {
 
   return (
     <>
-      <h1>{`Details Film:  ${location?.state?.label}`}</h1>
+      <Title title="Details Film:" query={titleOnMovie} />
       <button className="back__button" type="button" onClick={onGoBack}>
         Go back
       </button>
