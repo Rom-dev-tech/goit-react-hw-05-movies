@@ -1,5 +1,11 @@
 import { memo, useEffect, useState, lazy, Suspense } from 'react';
-import { Route, useParams, useRouteMatch } from 'react-router';
+import {
+  Route,
+  useHistory,
+  useLocation,
+  useParams,
+  useRouteMatch,
+} from 'react-router';
 import { NavLink } from 'react-router-dom';
 import * as moviesShelfAPI from '../../../service/moviesshelf-appi';
 import defaultImage from '../../../images/default.jpg';
@@ -17,13 +23,23 @@ const MovieDetailsView = () => {
   const { url, path } = useRouteMatch();
   const [movie, setMovie] = useState(null);
 
+  const location = useLocation();
+  const history = useHistory();
+
   useEffect(() => {
     moviesShelfAPI.fatchMovieById(moviesId).then(setMovie);
   }, [moviesId]);
 
+  const onGoBack = () => {
+    history.push(location.state.from);
+  };
+
   return (
     <>
       <h1>{`Details Film  ${moviesId}`}</h1>
+      <button className="back__button" type="button" onClick={onGoBack}>
+        Go back
+      </button>
 
       {movie && (
         <>

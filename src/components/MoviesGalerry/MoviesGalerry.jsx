@@ -1,14 +1,20 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import defaultImage from '../../images/default.jpg';
 
 export const MoviesGalerry = ({ movies }) => {
+  const location = useLocation();
   return (
     <ul className="gallery">
       {movies &&
         movies.map((movie) => (
           <li key={movie.id} className="gallery__item">
-            <Link to={`/movies/${movie.id}`}>
+            <Link
+              to={{
+                pathname: `/movies/${movie.id}`,
+                state: { from: location },
+              }}
+            >
               <img
                 className="gallery__image"
                 src={
