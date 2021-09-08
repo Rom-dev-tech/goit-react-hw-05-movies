@@ -19,16 +19,17 @@ const Reviews = lazy(() =>
 );
 
 const MovieDetailsView = () => {
-  const { moviesId } = useParams();
-  const { url, path } = useRouteMatch();
   const [movie, setMovie] = useState(null);
+  const { slug } = useParams();
+  const { url, path } = useRouteMatch();
+  const movieId = slug.match(/[a-z0-9]+$/)[0];
 
   const location = useLocation();
   const history = useHistory();
 
   useEffect(() => {
-    moviesShelfAPI.fatchMovieById(moviesId).then(setMovie);
-  }, [moviesId]);
+    moviesShelfAPI.fatchMovieById(movieId).then(setMovie);
+  }, [movieId]);
 
   const onGoBack = () => {
     history.push(location?.state?.from ?? '/');
@@ -36,7 +37,7 @@ const MovieDetailsView = () => {
 
   return (
     <>
-      <h1>{`Details Film  ${moviesId}`}</h1>
+      <h1>{`Details Film:  ${location?.state?.label}`}</h1>
       <button className="back__button" type="button" onClick={onGoBack}>
         Go back
       </button>
@@ -98,11 +99,11 @@ const MovieDetailsView = () => {
 
           <Suspense fallback={<h1>Loading... Additional information</h1>}>
             <Route path={`${path}/cast`}>
-              <Cast moviesId={moviesId} />
+              <Cast moviesId={movieId} />
             </Route>
 
             <Route path={`${path}/reviews`}>
-              <Reviews moviesId={moviesId} />
+              <Reviews moviesId={movieId} />
             </Route>
           </Suspense>
         </>

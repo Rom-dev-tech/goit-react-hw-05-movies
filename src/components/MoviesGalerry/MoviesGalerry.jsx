@@ -1,9 +1,11 @@
 import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import slugify from 'slugify';
 import defaultImage from '../../images/default.jpg';
 
 export const MoviesGalerry = ({ movies }) => {
   const location = useLocation();
+
   return (
     <ul className="gallery">
       {movies &&
@@ -11,8 +13,13 @@ export const MoviesGalerry = ({ movies }) => {
           <li key={movie.id} className="gallery__item">
             <Link
               to={{
-                pathname: `/movies/${movie.id}`,
-                state: { from: location },
+                pathname: `/movies/${slugify(
+                  `${movie.original_title} ${movie.id}`,
+                  {
+                    lower: true,
+                  }
+                )}`,
+                state: { from: location, label: movie.original_title },
               }}
             >
               <img

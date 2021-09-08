@@ -42,7 +42,7 @@ const App = () => {
                 <MoviesView />
               </Route>
 
-              <Route path="/movies/:moviesId">
+              <Route path="/movies/:slug">
                 <MovieDetailsView />
               </Route>
 
