@@ -31,7 +31,7 @@ const MovieDetailsView = () => {
   }, [moviesId]);
 
   const onGoBack = () => {
-    history.push(location.state.from);
+    history.push(location?.state?.from ?? '/');
   };
 
   return (
