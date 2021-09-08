@@ -1,0 +1,63 @@
+@import 'styles/shared';
+
+.searchform {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  min-width: 320px;
+  background-color: $accent-color;
+  border-radius: 6px;
+}
+
+.searchform__button {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  background-image: url('https://image.flaticon.com/icons/svg/149/149852.svg');
+  background-size: 40%;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.6;
+  transition: opacity $timing-function;
+  cursor: pointer;
+  outline: none;
+}
+
+.searchform__button:hover {
+  opacity: 1;
+  background-color: $white;
+}
+
+.searchform__button--label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+  border: 0;
+}
+
+.searchform__input {
+  display: inline-block;
+  width: 100%;
+  font: inherit;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding: 0 10px;
+  background-color: $accent-color;
+  color: $white;
+}
+
+.searchform__input::placeholder {
+  font: inherit;
+  font-size: 18px;
+  color: $white;
+  opacity: 0.8;
+}

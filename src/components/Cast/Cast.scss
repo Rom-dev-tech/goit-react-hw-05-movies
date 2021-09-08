@@ -1,0 +1,30 @@
+@import 'styles/shared';
+
+.cast__list {
+  @extend %list;
+
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  border-radius: 6px;
+  padding: 0 0 20px 30px;
+}
+
+.cast__item {
+  &:not(:last-child) {
+    margin-right: 35px;
+  }
+}
+
+.cast__name {
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.cast__image {
+  width: 150px;
+  height: 200px;
+  border-radius: 6px;
+}

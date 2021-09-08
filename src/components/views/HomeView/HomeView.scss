@@ -1,0 +1,47 @@
+@import 'styles/shared.scss';
+
+.gallery {
+  @extend %list;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
+  @media screen and (min-width: $tablet) {
+    grid-template-columns: repeat(auto-fill, minmax(400px, fr));
+    max-width: calc(100vw - 80px);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    display: grid;
+    grid-gap: 20px;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.gallery__item {
+  &:not(:last-child) {
+    margin-bottom: 20px;
+
+    @media screen and (min-width: $tablet) {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.gallery__image {
+  border-radius: 2px;
+  transition: transform $timing-function;
+}
+
+.gallery__image:hover {
+  transform: scale(1.07);
+  cursor: zoom-in;
+}
+
+.gallery__title {
+  text-align: center;
+  font-size: 22px;
+
+  @media screen and (min-width: $tablet) {
+    font-size: 32px;
+  }
+}

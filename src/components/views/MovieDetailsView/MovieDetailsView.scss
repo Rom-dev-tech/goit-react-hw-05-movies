@@ -1,0 +1,38 @@
+@import 'styles/shared';
+
+.details__wrapper {
+  display: flex;
+}
+
+.details__image {
+  height: 350px;
+  margin-right: 50px;
+}
+
+.details__list {
+  @extend %list;
+
+  display: flex;
+}
+
+.details__item {
+  &:not(:last-child) {
+    margin-right: 20px;
+  }
+}
+
+.additional__list {
+  @extend %list;
+}
+
+.link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.activeLink {
+  color: $accent-color;
+}
