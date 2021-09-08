@@ -14,6 +14,12 @@ export const MoviesView = () => {
 
   const prevQuery = new URLSearchParams(location.search).get('query') ?? '';
 
+  const fetchMovies = (query) => {
+    moviesShelfAPI
+      .fetchSearchMovies(query)
+      .then((response) => setMovies(response.results));
+  };
+
   const onChangeSubmit = (query) => {
     setQuery(query);
     setMovies([]);
@@ -25,17 +31,14 @@ export const MoviesView = () => {
   };
 
   useEffect(() => {
-    if (prevQuery !== '') {
-      moviesShelfAPI
-        .fetchSearchMovies(prevQuery)
-        .then((response) => setMovies(response.results));
+    if (query !== '') {
+      fetchMovies(query);
     }
 
-    if (query !== '') {
-      moviesShelfAPI
-        .fetchSearchMovies(query)
-        .then((response) => setMovies(response.results));
+    if (prevQuery !== '') {
+      fetchMovies(prevQuery);
     }
+
     return;
   }, [prevQuery, query]);
 
