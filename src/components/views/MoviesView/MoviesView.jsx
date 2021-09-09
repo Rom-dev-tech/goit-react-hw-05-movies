@@ -40,6 +40,7 @@ const MoviesView = () => {
       fetchMovies(prevQuery);
     }
 
+    setMovies([]);
     return;
   }, [prevQuery, query]);
 
@@ -48,7 +49,7 @@ const MoviesView = () => {
       <SearchBar onSubmit={onChangeSubmit} />
 
       {query !== '' && <Title title="Found on request:" query={query} />}
-      {query !== prevQuery && (
+      {query === prevQuery || prevQuery === '' ? null : (
         <Title title="Found on request:" query={prevQuery} />
       )}
 
