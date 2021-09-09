@@ -4,6 +4,7 @@ import { MoviesGalerry } from '../../components/MoviesGalerry/MoviesGalerry';
 import { Title } from '../../components/Title/Title';
 import * as moviesShelfAPI from '../../service/moviesshelf-appi';
 import './MoviesView.scss';
+import '../../components/MoviesGalerry/MoviesGalerry.scss';
 
 const MoviesView = (props) => {
   const [query, setQuery] = useState('');
