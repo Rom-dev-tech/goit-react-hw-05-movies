@@ -1,11 +1,5 @@
 import { memo, useEffect, useState, lazy, Suspense, useRef } from 'react';
-import {
-  Route,
-  useHistory,
-  useLocation,
-  useParams,
-  useRouteMatch,
-} from 'react-router';
+import { Route } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import { Title } from '../../components/Title/Title';
 import * as moviesShelfAPI from '../../service/moviesshelf-appi';
@@ -19,14 +13,14 @@ const Reviews = lazy(() =>
   import('../../components/Reviews/Reviews' /* webpackChunkName: "reviews" */)
 );
 
-const MovieDetailsView = () => {
+const MovieDetailsView = (props) => {
   const [movie, setMovie] = useState(null);
-  const { slug } = useParams();
-  const { url, path } = useRouteMatch();
-  const movieId = slug.match(/[a-z0-9]+$/)[0];
 
-  const location = useLocation();
-  const history = useHistory();
+  const { history, location, match } = props;
+
+  const slug = match.params.slug;
+  const { url, path } = match;
+  const movieId = slug.match(/[a-z0-9]+$/)[0];
 
   const titleOnMovie = useRef(location?.state?.label);
   const onGoBackLink = useRef(location?.state?.from);
