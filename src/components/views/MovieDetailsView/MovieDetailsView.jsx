@@ -1,4 +1,4 @@
-import { memo, useEffect, useState, lazy, Suspense } from 'react';
+import { memo, useEffect, useState, lazy, Suspense, useRef } from 'react';
 import {
   Route,
   useHistory,
@@ -28,19 +28,20 @@ const MovieDetailsView = () => {
   const location = useLocation();
   const history = useHistory();
 
-  const titleOnMovie = location?.state?.label;
+  const titleOnMovie = useRef(location?.state?.label);
+  const onGoBackLink = useRef(location?.state?.from);
 
   useEffect(() => {
     moviesShelfAPI.fatchMovieById(movieId).then(setMovie);
   }, [movieId]);
 
   const onGoBack = () => {
-    history.push(location?.state?.from ?? '/');
+    history.push(onGoBackLink.current ?? '/');
   };
 
   return (
     <>
-      <Title title="Details Film:" query={titleOnMovie} />
+      <Title title="Details Film:" query={titleOnMovie.current} />
       <button className="back__button" type="button" onClick={onGoBack}>
         Go back
       </button>

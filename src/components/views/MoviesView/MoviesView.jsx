@@ -22,7 +22,6 @@ const MoviesView = () => {
 
   const onChangeSubmit = (query) => {
     setQuery(query);
-    setMovies([]);
 
     if (query !== '') {
       history.push({
