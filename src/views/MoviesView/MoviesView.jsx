@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-// import { useHistory, useLocation } from 'react-router';
 import { SearchBar } from './SearchBar';
 import { MoviesGalerry } from '../../components/MoviesGalerry/MoviesGalerry';
 import { Title } from '../../components/Title/Title';

@@ -30,4 +30,10 @@ img {
 
 h1 {
   color: $accent-color;
+  font-size: 20px;
+  text-align: center;
+
+  @media screen and (min-width: $tablet) {
+    font-size: 36px;
+  }
 }

@@ -1,18 +1,27 @@
 @import 'styles/shared';
 
 .details__wrapper {
-  display: flex;
+  @media screen and (min-width: $tablet) {
+    display: flex;
+  }
 }
 
 .details__image {
   height: 350px;
-  margin-right: 50px;
+
+  margin: 0 auto;
+
+  @media screen and (min-width: $tablet) {
+    margin-right: 50px;
+  }
 }
 
 .details__list {
   @extend %list;
 
-  display: flex;
+  @media screen and (min-width: $tablet) {
+    display: flex;
+  }
 }
 
 .details__item {
@@ -47,10 +56,16 @@
   padding: 5px;
   font-weight: 700;
 
+  margin-left: 60px;
+
   &:hover,
   &:focus {
     background-color: $accent-color;
     color: $white;
     font-weight: 700;
+  }
+
+  @media screen and (min-width: $tablet) {
+    margin-left: 0px;
   }
 }

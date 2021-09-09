@@ -3,17 +3,21 @@
 .cast__list {
   @extend %list;
 
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-
   border-radius: 6px;
-  padding: 0 0 20px 30px;
+
+  @media screen and (min-width: $tablet) {
+    padding: 0 0 20px 30px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
 }
 
 .cast__item {
-  &:not(:last-child) {
-    margin-right: 35px;
+  @media screen and (min-width: $tablet) {
+    &:not(:last-child) {
+      margin-right: 35px;
+    }
   }
 }
 
@@ -24,7 +28,10 @@
 }
 
 .cast__image {
-  width: 150px;
-  height: 200px;
   border-radius: 6px;
+
+  @media screen and (min-width: $tablet) {
+    width: 150px;
+    height: 200px;
+  }
 }
