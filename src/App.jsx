@@ -5,23 +5,19 @@ import { Container } from './components/Container/Container';
 import './App.scss';
 
 const HomeView = lazy(() =>
-  import(
-    './components/views/HomeView/HomeView' /* webpackChunkName: "home-view" */
-  )
+  import('./views/HomeView/HomeView' /* webpackChunkName: "home-view" */)
 );
 const MoviesView = lazy(() =>
-  import(
-    './components/views/MoviesView/MoviesView' /* webpackChunkName: "movies-view" */
-  )
+  import('./views/MoviesView/MoviesView' /* webpackChunkName: "movies-view" */)
 );
 const MovieDetailsView = lazy(() =>
   import(
-    './components/views/MovieDetailsView/MovieDetailsView' /* webpackChunkName: "details-view" */
+    './views/MovieDetailsView/MovieDetailsView' /* webpackChunkName: "details-view" */
   )
 );
 const NotFoundView = lazy(() =>
   import(
-    './components/views/NotFoundView/NotFoundView' /* webpackChunkName: "notFound-view" */
+    './views/NotFoundView/NotFoundView' /* webpackChunkName: "notFound-view" */
   )
 );
 
@@ -34,21 +30,13 @@ const App = () => {
         <Container>
           <Suspense fallback={<h1>Loading...</h1>}>
             <Switch>
-              <Route path="/" exact>
-                <HomeView />
-              </Route>
+              <Route path="/" exact component={HomeView} />
 
-              <Route path="/movies" exact>
-                <MoviesView />
-              </Route>
+              <Route path="/movies" exact component={MoviesView} />
 
-              <Route path="/movies/:slug">
-                <MovieDetailsView />
-              </Route>
+              <Route path="/movies/:slug" component={MovieDetailsView} />
 
-              <Route>
-                <NotFoundView />
-              </Route>
+              <Route component={NotFoundView} />
             </Switch>
           </Suspense>
         </Container>

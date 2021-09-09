@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import * as moviesShelfAPI from '../../../service/moviesshelf-appi';
-import { MoviesGalerry } from '../../MoviesGalerry/MoviesGalerry';
-import { Title } from '../../Title/Title';
+import * as moviesShelfAPI from '../../service/moviesshelf-appi';
+import { MoviesGalerry } from '../../components/MoviesGalerry/MoviesGalerry';
+import { Title } from '../../components/Title/Title';
 import '../HomeView/HomeView.scss';
 
 const HomeView = () => {

@@ -7,16 +7,16 @@ import {
   useRouteMatch,
 } from 'react-router';
 import { NavLink } from 'react-router-dom';
-import { Title } from '../../Title/Title';
-import * as moviesShelfAPI from '../../../service/moviesshelf-appi';
-import defaultImage from '../../../images/default.jpg';
+import { Title } from '../../components/Title/Title';
+import * as moviesShelfAPI from '../../service/moviesshelf-appi';
+import defaultImage from '../../images/default.jpg';
 import '../MovieDetailsView/MovieDetailsView.scss';
 
 const Cast = lazy(() =>
-  import('../../Cast/Cast' /* webpackChunkName: "cast" */)
+  import('../../components/Cast/Cast' /* webpackChunkName: "cast" */)
 );
 const Reviews = lazy(() =>
-  import('../../Reviews/Reviews' /* webpackChunkName: "reviews" */)
+  import('../../components/Reviews/Reviews' /* webpackChunkName: "reviews" */)
 );
 
 const MovieDetailsView = () => {

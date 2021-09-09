@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router';
 import { SearchBar } from './SearchBar';
-import { MoviesGalerry } from '../../MoviesGalerry/MoviesGalerry';
-import { Title } from '../../Title/Title';
-import * as moviesShelfAPI from '../../../service/moviesshelf-appi';
-import '../MoviesView/MoviesView.scss';
+import { MoviesGalerry } from '../../components/MoviesGalerry/MoviesGalerry';
+import { Title } from '../../components/Title/Title';
+import * as moviesShelfAPI from '../../service/moviesshelf-appi';
+import './MoviesView.scss';
 
 const MoviesView = () => {
   const [query, setQuery] = useState('');
