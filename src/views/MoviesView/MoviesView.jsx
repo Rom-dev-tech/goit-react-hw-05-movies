@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react';
-import { useHistory, useLocation } from 'react-router';
+// import { useHistory, useLocation } from 'react-router';
 import { SearchBar } from './SearchBar';
 import { MoviesGalerry } from '../../components/MoviesGalerry/MoviesGalerry';
 import { Title } from '../../components/Title/Title';
 import * as moviesShelfAPI from '../../service/moviesshelf-appi';
 import './MoviesView.scss';
 
-const MoviesView = () => {
+const MoviesView = (props) => {
   const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([]);
-  const history = useHistory();
-  const location = useLocation();
+
+  const { history, location } = props;
 
   const prevQuery = new URLSearchParams(location.search).get('query') ?? '';
 
