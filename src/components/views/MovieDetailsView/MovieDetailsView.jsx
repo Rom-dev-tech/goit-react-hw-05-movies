@@ -101,7 +101,7 @@ const MovieDetailsView = () => {
             </li>
           </ul>
 
-          <Suspense fallback={<h1>Loading... Additional information</h1>}>
+          <Suspense fallback={<h1>Loading information ...</h1>}>
             <Route path={`${path}/cast`}>
               <Cast moviesId={movieId} />
             </Route>
