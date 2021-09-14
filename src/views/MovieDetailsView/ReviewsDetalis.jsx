@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { Route } from 'react-router';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const Cast = lazy(() =>
   import('../../components/Cast/Cast' /* webpackChunkName: "cast" */)
@@ -45,4 +46,10 @@ export const ReviewsDetalis = ({ url, path, movieId }) => {
       </Suspense>
     </>
   );
+};
+
+ReviewsDetalis.propTypes = {
+  url: PropTypes.string.isRequired,
+  path: PropTypes.string.isRequired,
+  movieId: PropTypes.string.isRequired,
 };
