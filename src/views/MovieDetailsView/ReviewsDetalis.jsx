@@ -35,7 +35,7 @@ export const ReviewsDetalis = ({ url, path, movieId }) => {
         </li>
       </ul>
 
-      <Suspense fallback={<h1>Loading information ...</h1>}>
+      <Suspense fallback={<h1>prepering...</h1>}>
         <Route path={`${path}/cast`}>
           <Cast moviesId={movieId} />
         </Route>

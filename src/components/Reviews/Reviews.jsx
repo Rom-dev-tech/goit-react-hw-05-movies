@@ -1,21 +1,26 @@
-import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import * as moviesShelfAPI from '../../service/moviesshelf-appi';
+import { useQuery } from 'react-query';
+import { fatchReviewsOnMovie } from '../../service/moviesshelf-appi';
+import { Error } from '../../UI/Error/Error';
 
 const Reviews = ({ moviesId }) => {
-  const [reviews, setReviews] = useState([]);
+  const { data, status } = useQuery(['reviews', moviesId], () =>
+    fatchReviewsOnMovie(moviesId)
+  );
 
-  useEffect(() => {
-    moviesShelfAPI
-      .fatchReviewsOnMovie(moviesId)
-      .then((response) => setReviews(response.results));
-  }, [moviesId]);
+  if (status === 'loading') {
+    return <h1>loading...</h1>;
+  }
 
-  return (
-    <>
+  if (status === 'error') {
+    return <Error title="Not found" />;
+  }
+
+  if (status === 'success') {
+    return (
       <ul>
-        {reviews.length ? (
-          reviews.map((review) => (
+        {data.results.length ? (
+          data.results.map((review) => (
             <li key={review.author}>
               <h3>Author: {review.author}</h3>
               <p>{review.content}</p>
@@ -25,8 +30,8 @@ const Reviews = ({ moviesId }) => {
           <p>We don't have any reviews for this movie...</p>
         )}
       </ul>
-    </>
-  );
+    );
+  }
 };
 
 Reviews.propTypes = {
