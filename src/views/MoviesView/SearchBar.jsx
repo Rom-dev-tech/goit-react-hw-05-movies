@@ -13,6 +13,7 @@ export const SearchBar = ({ onSubmit }) => {
 
     if (query.trim() === '') {
       alert('Make your choice :)');
+      return;
     }
 
     onSubmit(query);

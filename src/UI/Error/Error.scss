@@ -1,0 +1,11 @@
+@import 'styles/shared';
+
+.error {
+  color: $red;
+  font-size: 20px;
+  text-align: center;
+
+  @media screen and (min-width: $tablet) {
+    font-size: 36px;
+  }
+}

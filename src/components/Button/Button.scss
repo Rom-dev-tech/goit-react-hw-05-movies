@@ -1,0 +1,16 @@
+@import 'styles/shared';
+
+.button {
+  cursor: pointer;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  background-color: transparent;
+
+  &:hover,
+  &:focus {
+    background-color: $accent-color;
+    color: $white;
+    font-weight: 700;
+  }
+}

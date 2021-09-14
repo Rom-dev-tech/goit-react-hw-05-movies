@@ -8,15 +8,15 @@ const fetchWithErrorHadling = async (url = '', config = {}) => {
     : Promise.reject(new Error('Not found'));
 };
 
-export const fetchTrandingMovies = () => {
+export const fetchTrandingMovies = (page = 1) => {
   return fetchWithErrorHadling(
-    `${BASE_URL}trending/movie/day?${API__KEY}&page=1&language=en`
+    `${BASE_URL}trending/movie/day?${API__KEY}&page=${page}&language=en`
   );
 };
 
-export const fetchSearchMovies = (querry) => {
+export const fetchSearchMovies = (querry, page) => {
   return fetchWithErrorHadling(
-    `${BASE_URL}search/movie?${API__KEY}&query=${querry}&language=en&page=1`
+    `${BASE_URL}search/movie?${API__KEY}&query=${querry}&language=en&page=${page}`
   );
 };
 
