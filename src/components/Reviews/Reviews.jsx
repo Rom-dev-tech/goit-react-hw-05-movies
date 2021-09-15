@@ -18,7 +18,7 @@ const Reviews = ({ moviesId }) => {
 
   if (status === 'success') {
     return (
-      <ul>
+      <ul style={{ padding: 0 }}>
         {data.results.length ? (
           data.results.map((review) => (
             <li key={review.author}>
